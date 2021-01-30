@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>LDM SHOP | Accueil</title>
+    <link rel="stylesheet" href="Projet.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Imbue&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-menu">
+        <div class="menu-elements">
+          <i class="fas fa-bars"></i>
+          <p>MENU</p>
+            <i class="fas fa-search"></i>
+        </div>
+      </div>
+
+      <div class="header-title">
+        <h1 class="title">LDM SHOP<span>™</span></h1>
+      </div>
+
+      <div class="header-login">
+          <p>SE CONNECTER</p>
+      </div>
+    </div>
+
+    <div class="subheader">
+      <h2>Bienvenue <span id="username"></span> !</h2>
+    </div>
+
+    <div class="content">
+      <div class="presentation-container">
+        <div class="presentation-text-container">
+          <h1>BIENVENUE CHEZ <span>LDM SHOP</span></h1>
+          <p class='presentation-text'>Bienvenue chez <span>Ldm Shop</span>, ici tu pourras trouver plusieurs article <br>
+            en relation avec le Lycée Darius Milhaud: fournitures, livres, ou <br> meme vetements !
+            En vous souhaitant une bonne expérience. <br>
+            L'équipe <span>LDM SHOP</span>
+          </p>
+        </div>
+      </div>
+
+
+      <div class="slider-subheader">
+        Articles vedettes
+      </div>
+
+      <div class="slider">
+        <div class="previous-button">
+          <button type="button" name="button">←</button>
+        </div>
+
+        <div class="rating-and-image">
+          <img id="image" name="slide" src="" alt="">
+          <div class="item-infos">
+            <p id="item-rating" class="item-rate"></p>
+            <p id="item-name" class="item-name"></p>
+            <p id="item-price" class="item-price"></p>
+          </div>
+        </div>
+
+        <div class="next-button">
+          <button id="next" type="button" name="button">→</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <p>Tous droits reservés | </p>
+      <p>Copyright © 2021 LDM-SHOP.</p>
+    </div>
+
+    <script src="https://kit.fontawesome.com/ded61609e7.js"></script>
+    <script type="text/javascript">
+    alert("Page d'acceuil developpée par Ali Soumah, avec la participation de son groupe")
+    function GetName(){
+      var username = prompt('Bienvenue, quel est ton prénom ou nom ?')
+      document.getElementById('username').innerHTML = username
+
+    }
+    GetName()
+
+    var i = 0;
+    var itemPrice = document.getElementById('item-price')
+    var itemRate = document.getElementById('item-rating')
+    var itemName = document.getElementById('item-name')
+    const itemsImages = ['https://cdn.frenchpdf.com/wp/2020/04/30074023/Le-Roi-LearWilliam-Shakespeare.png',
+    'https://langues.bescherelle.com/img/eventail_entr.png',
+    'https://www.stylos-luxe.com/1281-large_default/stylo-bille-montblanc-heritage-rouge-et-noir-black.jpg']
+    const itemsRatings = ['8/10', '9,5/10', '8,8/10']
+    const itemsPrices = ['7€', '12€', '2€']
+    const itemsNames = ['Le Roi Lear', 'Kit de Bescherelles', 'Stylo Serpent Collector']
+
+
+
+    document.querySelector('.header-login').addEventListener('click', function(){
+    })
+    var time = 2000;
+
+    function changeImageandColor(){
+      document.slide.src = itemsImages[i]
+      itemRate.innerHTML = itemsRatings[i]
+      itemName.innerHTML = itemsNames[i]
+      itemPrice.innerHTML = itemsPrices[i]
+      if (i < itemsImages.length - 1) {
+        i++;
+      } else {
+        i = 0;
+      }
+      setTimeout("changeImageandColor()", time);
+    }
+    window.onload = changeImageandColor;
+
+    </script>
+
+
+      <style media="screen">
+      body{
+        margin: 0;
+        padding: 0;
+        font-family: 'Open Sans', sans-serif;
+      }
+
+      .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 80px;
+        border-bottom: 1px solid #bdc3c7;
+      }
+
+      .subheader{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #16a085;
+        color: white;
+      }
+
+      .subheader h2{
+        margin-left: -40px;
+        font-size: 15px;
+      }
+
+      .title{
+        font-family: 'Imbue', serif;
+        font-size: 35px;
+      }
+
+      .title span{
+        font-weight: normal;
+        font-size: 10px;
+      }
+
+      .menu-elements{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        margin-left: 40px;
+        font-size: 16px;
+      }
+
+      .menu-elements p {
+        margin-left: 10px;
+        margin-right: 10px;
+        font-weight: bold;
+      }
+
+
+      .header-login{
+        justify-content: center;
+        background-color: #16a085;
+        height: 100%;
+        width: 180px;
+        align-items: center;
+        display: flex;
+        text-align: center;
+        color: white;
+      }
+
+      .header-login p{
+
+        font-weight: bold;
+        letter-spacing: 1px;
+      }
+
+      .header-login:hover{
+        color: #16a085;
+        background-color: white;
+        transition: 0.3s;
+      }
+
+      .slider{
+        justify-content: space-around;
+        margin: 26px auto;
+        display: flex;
+        height: auto;
+        text-align: center;
+        align-items: center;
+      }
+
+      .slider button{
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+        font-weight: bold;
+        font-size: 23px;
+        border: none;
+        color: white;
+        background-color: #16a085;
+        box-shadow: 0 0 0.2em black;
+      }
+
+      .slider button:hover{
+        color: black;
+        background-color: white;
+        border: 2px solid #16a085;
+      }
+
+      .item-infos{
+        font-weight: bold;
+      }
+
+      img{
+        height: 440px;
+      }
+
+
+      .slider-subheader{
+        display: flex;
+        justify-content: center;
+        color: white;
+        background-color: #16a085;
+        font-weight: bold;
+        height: 80px;
+        align-items: center;
+        font-size: 23px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
+
+      .presentation-container{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+        align-items: center;
+        font-size: 25px;
+        background-image: url(https://www.idf-constructiondurable.fr/fileadmin/_processed_/b/d/csm_Lycee_Darius_Milhaud_fab7548593.jpg);
+        height: 500px;
+      }
+
+      .presentation-text-container{
+        position: absolute;
+        color: white;
+        background-color: rgba(24, 24, 24, 0.5);
+        height: auto;
+        width: 830px;
+      }
+
+      .footer{
+        display: flex;
+        justify-content: center;
+      }
+
+      </style>
+  </body>
+</html>
